@@ -1,23 +1,15 @@
 package com.dreamworks.offlinereading.screens
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.media.ThumbnailUtils
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.MediaStore
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.dreamworks.offlinereading.databinding.ActivityDownloadBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
@@ -35,10 +27,10 @@ class DownloadScreen : AppCompatActivity() {
 
             // Handle the loaded thumbnail bitmap
 
-            downloadAndSaveWebPage(url)
+//            downloadAndSaveWebPage(url)
             binding.statusTextView.text = ""
         }
-        getFiles()
+//        getFiles()
 
     }
 

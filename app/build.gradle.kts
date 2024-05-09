@@ -42,6 +42,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    packagingOptions {
+        resources.excludes.apply {
+            add("META-INF/DEPENDENCIES")
+            add("META-INF/INDEX.LIST")
+        }
+
+    }
+
 }
 
 dependencies {
@@ -70,6 +79,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    //volley
+    implementation ("com.android.volley:volley:1.2.1")
 
     //rxjava
     implementation ("io.reactivex.rxjava2:rxjava:2.2.7")
