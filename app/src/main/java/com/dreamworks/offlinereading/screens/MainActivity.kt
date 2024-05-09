@@ -13,7 +13,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.TimePicker
 import android.widget.Toast
@@ -40,11 +39,11 @@ class MainActivity : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
     private var isStopwatchRunning = false
     private var handlerAnimation = Handler(Looper.getMainLooper())
 
-    var hours = 0
-    var minutes = 0
+    private var hours = 0
+    private var minutes = 0
     // variables to store the selected time
-    var myHours : Int = 0
-    var myMinutes : Int= 0
+    private var myHours : Int = 0
+    private var myMinutes : Int= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -180,7 +179,7 @@ class MainActivity : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
                 val isRunning = p1?.getBooleanExtra(StopwatchService.isStopwatchRunning,false)
                 isStopwatchRunning = isRunning!!
                 val timeElapsed = p1.getIntExtra(StopwatchService.timeElapsedKey,0)
-                updateLayout(isStopwatchRunning)
+                updateLayout()
                 updateStopwatchValue(timeElapsed)
             }
 
@@ -265,7 +264,7 @@ class MainActivity : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
 
     }
 
-    private fun updateLayout(stopwatchRunning: Boolean) {
+    private fun updateLayout() {
         if (isStopwatchRunning){
             binding.toggleButton.icon = ContextCompat.getDrawable(this,
                 R.drawable.baseline_pause_circle_outline_24
@@ -284,7 +283,7 @@ class MainActivity : AppCompatActivity(),TimePickerDialog.OnTimeSetListener {
             when (p1!!.action){
                 "PAUSE"->{
                     pauseStopwatch()
-                    Toast.makeText(this@MainActivity,"PAUSE",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this@MainActivity,"PAUSE",Toast.LENGTH_SHORT).show()
                 }
             }
         }
